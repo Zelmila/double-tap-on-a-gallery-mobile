@@ -1,0 +1,21 @@
+<script>
+  const cardWrappers = document.querySelectorAll('.card-wrapper');
+
+  cardWrappers.forEach(cardWrapper => {
+    let tapCount = 0;
+    cardWrapper.addEventListener('click', function() {
+      tapCount++;
+      if (tapCount === 1) {
+        // First tap
+        cardWrapper.classList.add('hovered');
+        setTimeout(() => {
+          tapCount = 0;
+        }, 300); // Reset tap count after 300ms
+      } else if (tapCount === 2) {
+        // Second tap
+        cardWrapper.classList.remove('hovered');
+        tapCount = 0;
+      }
+    });
+  });
+</script>
